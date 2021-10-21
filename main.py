@@ -8,13 +8,23 @@ def guess(x_number):
   while guess != random_number:
     guess = int(input(f'Guess a number between 1 and {x_number}: '))
     if guess < random_number:
-      print("Guess again. Too low")
+      if guess in range(random_number - 2, random_number):
+        print('Guess again. A bit low!')
+      elif guess in range (random_number - 3, random_number):
+        print('Guess again. Low!')
+      else:
+        print("Guess again. Too low!")
     elif guess > random_number:
-      print('Guess again. Too high')
+      if guess in range(random_number + 1, random_number + 3):
+        print('Guess again! A bit high!') 
+      elif guess in range(random_number + 3, random_number + 10):
+        print('Guess again. High!')
+      else:
+        print('Guess again. Too high!')
   
   print(f'You got it. Random number was {random_number}')
 
-# guess(100)
+guess(100)
 
 def computer_guess(x_for_computer):
   low = 1
@@ -33,4 +43,4 @@ def computer_guess(x_for_computer):
 
   print(f'Computer guessed correctly, {guess}')
 
-computer_guess(100)
+# computer_guess(100)
